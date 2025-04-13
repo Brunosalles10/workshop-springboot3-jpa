@@ -3,6 +3,8 @@ package com.brs.course.entities;
 import java.io.Serializable;
 import java.time.Instant;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,9 +26,11 @@ public class Payment  implements Serializable{
 	private Long id;
 	private Instant moment;
 	
+	@JsonIgnore
 	@OneToOne
 	@MapsId
 	private Order order;
+	
 	
 	public Payment() {
 		

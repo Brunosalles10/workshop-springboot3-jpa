@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.brs.course.entities.User;
 import com.brs.course.repositeres.UserRepository;
+import com.brs.course.resources.log;
 
 @Service
 public class UserService {
@@ -22,6 +23,14 @@ public class UserService {
 	public User findById(Long id) {
 		Optional<User> obj = repository.findById(id);
 		return obj.get();
+	}
+	
+	public User insert(User obj) {
+		return repository.save(obj);
+	}
+	
+	public void delete(Long id) {
+		repository.deleteById(id);
 	}
 
 }
